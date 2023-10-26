@@ -1,0 +1,473 @@
+# // console.log Client（@notionhq/client）
+  blocks: {
+    retrieve: [Function: retrieve],
+    update: [Function: update],
+    delete: [Function: delete],
+    children: { append: [Function: append], list: [Function: list] }
+  },
+  databases: {
+    list: [Function: list],
+    retrieve: [Function: retrieve],
+    query: [Function: query],
+    create: [Function: create],
+    update: [Function: update]
+  },
+  pages: {
+    create: [Function: create],
+    retrieve: [Function: retrieve],
+    update: [Function: update],
+    properties: { retrieve: [Function: retrieve] }
+  },
+  users: {
+    retrieve: [Function: retrieve],
+    list: [Function: list],
+    me: [Function: me]
+  },
+  comments: { create: [Function: create], list: [Function: list] },
+  search: [Function (anonymous)]
+}
+
+# export const getStaticProps: GetStaticProps<{}> = async () => {
+#   const database = await notion.databases.query({
+#     database_id: process.env.NOTION_DATABASE_ID ?? ''
+#   })
+#   console.dir(database.results, { depth: null });
+#   return {
+#     props: {}
+#   }
+# }
+[
+  {
+    object: 'page',
+    id: '0502bb77-7c25-41f0-bdae-79406600a341',
+    created_time: '2023-10-21T08:16:00.000Z',
+    last_edited_time: '2023-10-21T10:16:00.000Z',
+    created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+    last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+    cover: null,
+    icon: null,
+    parent: {
+      type: 'database_id',
+      database_id: '1f2f87b5-40ff-496a-ad0a-17751bb32baa'
+    },
+    archived: false,
+    properties: {
+      Published: { id: 'Njhn', type: 'checkbox', checkbox: false },
+      Slug: {
+        id: 'zA%5B%3E',
+        type: 'rich_text',
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'testpage1', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'testpage1',
+            href: null
+          }
+        ]
+      },
+      Name: {
+        id: 'title',
+        type: 'title',
+        title: [
+          {
+            type: 'text',
+            text: { content: 'テストページ1', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'テストページ1',
+            href: null
+          }
+        ]
+      }
+    },
+    url: 'https://www.notion.so/1-0502bb777c2541f0bdae79406600a341',
+    public_url: null
+  },
+  {
+    object: 'page',
+    id: '1590eb17-4ef3-4b62-80bd-99bd3ccc4af5',
+    created_time: '2023-10-21T08:16:00.000Z',
+    last_edited_time: '2023-10-21T10:16:00.000Z',
+    created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+    last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+    cover: null,
+    icon: null,
+    parent: {
+      type: 'database_id',
+      database_id: '1f2f87b5-40ff-496a-ad0a-17751bb32baa'
+    },
+    archived: false,
+    properties: {
+      Published: { id: 'Njhn', type: 'checkbox', checkbox: false },
+      Slug: {
+        id: 'zA%5B%3E',
+        type: 'rich_text',
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'testpage2', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'testpage2',
+            href: null
+          }
+        ]
+      },
+      Name: {
+        id: 'title',
+        type: 'title',
+        title: [
+          {
+            type: 'text',
+            text: { content: 'テストページ2', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'テストページ2',
+            href: null
+          }
+        ]
+      }
+    },
+    url: 'https://www.notion.so/2-1590eb174ef34b6280bd99bd3ccc4af5',
+    public_url: null
+  }
+]
+
+# const blocks = blockResponses[index];
+# console.dir(blocks, { depth: null });
+{
+  object: 'list',
+  results: [
+    {
+      object: 'block',
+      id: 'fc6fb91a-d047-4c19-abae-ae90efd8dfc1',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:21:00.000Z',
+      last_edited_time: '2023-10-21T14:24:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'heading_2',
+      heading_2: {
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'test h2', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'test h2',
+            href: null
+          }
+        ],
+        is_toggleable: false,
+        color: 'default'
+      }
+    },
+    {
+      object: 'block',
+      id: 'dc4e996d-f7ab-42e1-827b-28e7a0212357',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:21:00.000Z',
+      last_edited_time: '2023-10-21T14:21:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: { rich_text: [], color: 'default' }
+    },
+    {
+      object: 'block',
+      id: '11501130-cbee-476e-8ea7-2273a6d62d5d',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:21:00.000Z',
+      last_edited_time: '2023-10-21T14:24:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: {
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'test paragraph', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'test paragraph',
+            href: null
+          }
+        ],
+        color: 'default'
+      }
+    },
+    {
+      object: 'block',
+      id: '73f3425e-d3ba-4da9-b634-8ca70968742e',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:21:00.000Z',
+      last_edited_time: '2023-10-21T14:21:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: { rich_text: [], color: 'default' }
+    },
+    {
+      object: 'block',
+      id: 'd3ab07f6-9eae-40d4-b1eb-16a39f1ddde1',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:21:00.000Z',
+      last_edited_time: '2023-10-21T14:25:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'code',
+      code: {
+        caption: [],
+        rich_text: [
+          {
+            type: 'text',
+            text: {
+              content: "const test: string = 'test';\nconsole.log(test);",
+              link: null
+            },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: "const test: string = 'test';\nconsole.log(test);",
+            href: null
+          }
+        ],
+        language: 'typescript'
+      }
+    },
+    {
+      object: 'block',
+      id: '1444e748-4d19-483d-aa10-34fc5b9a836a',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:22:00.000Z',
+      last_edited_time: '2023-10-21T14:22:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: { rich_text: [], color: 'default' }
+    },
+    {
+      object: 'block',
+      id: 'e01dca59-bba7-4d05-b4e9-2a4d581be31f',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:22:00.000Z',
+      last_edited_time: '2023-10-22T14:09:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'quote',
+      quote: {
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'test quote', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'test quote',
+            href: null
+          }
+        ],
+        color: 'default'
+      }
+    },
+    {
+      object: 'block',
+      id: '4a3fdda2-5d30-4a1d-8ee7-e3758f9aa641',
+      parent: {
+        type: 'page_id',
+        page_id: '0502bb77-7c25-41f0-bdae-79406600a341'
+      },
+      created_time: '2023-10-21T14:25:00.000Z',
+      last_edited_time: '2023-10-21T14:25:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: { rich_text: [], color: 'default' }
+    }
+  ],
+  next_cursor: null,
+  has_more: false,
+  type: 'block',
+  block: {},
+  request_id: 'ed2adbc2-6079-4f97-a7ec-3f473147aa97'
+}
+{
+  object: 'list',
+  results: [
+    {
+      object: 'block',
+      id: 'f32c7b6d-d050-4c38-8fa4-bab0e9be62e3',
+      parent: {
+        type: 'page_id',
+        page_id: '1590eb17-4ef3-4b62-80bd-99bd3ccc4af5'
+      },
+      created_time: '2023-10-22T16:04:00.000Z',
+      last_edited_time: '2023-10-22T16:05:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'heading_2',
+      heading_2: {
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: 'ああああ', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: 'ああああ',
+            href: null
+          }
+        ],
+        is_toggleable: false,
+        color: 'default'
+      }
+    },
+    {
+      object: 'block',
+      id: '90838d3d-b3e5-4d7e-9f16-25db05859827',
+      parent: {
+        type: 'page_id',
+        page_id: '1590eb17-4ef3-4b62-80bd-99bd3ccc4af5'
+      },
+      created_time: '2023-10-22T16:05:00.000Z',
+      last_edited_time: '2023-10-23T16:21:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'paragraph',
+      paragraph: { rich_text: [], color: 'default' }
+    },
+    {
+      object: 'block',
+      id: '068de310-ad3e-4810-a754-685bd3833fb0',
+      parent: {
+        type: 'page_id',
+        page_id: '1590eb17-4ef3-4b62-80bd-99bd3ccc4af5'
+      },
+      created_time: '2023-10-23T16:21:00.000Z',
+      last_edited_time: '2023-10-23T16:21:00.000Z',
+      created_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      last_edited_by: { object: 'user', id: '139597ef-f983-4907-97fd-63d5b9fff28a' },
+      has_children: false,
+      archived: false,
+      type: 'quote',
+      quote: {
+        rich_text: [
+          {
+            type: 'text',
+            text: { content: '引用文ですよ', link: null },
+            annotations: {
+              bold: false,
+              italic: false,
+              strikethrough: false,
+              underline: false,
+              code: false,
+              color: 'default'
+            },
+            plain_text: '引用文ですよ',
+            href: null
+          }
+        ],
+        color: 'default'
+      }
+    }
+  ],
+  next_cursor: null,
+  has_more: false,
+  type: 'block',
+  block: {},
+  request_id: 'f78d4dfc-313c-4e4b-83de-779eab1fea80'
+}
