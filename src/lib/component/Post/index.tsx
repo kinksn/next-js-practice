@@ -57,11 +57,11 @@ export const PostComponent: FC<{
                   return (
                     <Highlight code={content.text} language={content.language} key={`highlight_${index}`}>
                       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                        <pre key={key} className={className} style={style}>
+                        <pre key={key} className={className} style={style} suppressHydrationWarning={true}>
                           {tokens.map((line, i) => (
                             <div {...getLineProps({ line })} key={`${key}_line_${i}`}>
                               {line.map((token, tokenKey) => (
-                                <span {...getTokenProps({ token })} key={`${key}_token_${tokenKey}`} />
+                                <span {...getTokenProps({ token })} key={`${key}_token_${tokenKey}`} suppressHydrationWarning={true} />
                               ))}
                             </div>
                           ))}
