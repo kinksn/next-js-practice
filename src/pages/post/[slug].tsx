@@ -4,7 +4,7 @@ import { Layout } from "@/lib/component/Layout";
 import { PostComponent } from "@/lib/component/Post";
 import { Post } from "@/lib/types";
 
-type StaticPathsParams = {
+export type StaticPathsParams = {
     slug: string;
 };
 

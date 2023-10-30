@@ -3,6 +3,7 @@ export type Content =
           type:
               | 'paragraph'
               | 'quote'
+              | 'image'
               | 'heading_2'
               | 'heading_3';
           text: string | null;
