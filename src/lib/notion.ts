@@ -133,4 +133,5 @@ export const getPostContents = async (post: Post) => {
                 language: language ?? ''
             }
         })
+        .filter(Boolean) as Content[];;
 };
