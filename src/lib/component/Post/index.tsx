@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { Post } from "@/lib/types";
 import styles from './index.module.css';
-import { Heading2, Heading3, Paragraph, Quote, Code, PostImage } from './postComponents';
+import { Heading2, Heading3, Paragraph, Quote, Code, PostImage } from '@/lib/component/Post/postComponents';
 
 export const PostComponent: FC<{
     post: Post | undefined
