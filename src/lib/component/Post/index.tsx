@@ -1,10 +1,9 @@
 import { FC } from 'react';
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Post } from "@/lib/types";
 import styles from './index.module.css';
-import { Highlight } from 'prism-react-renderer';
+import { Heading2, Heading3, Paragraph, Quote, Code, PostImage } from './postComponents';
 
 export const PostComponent: FC<{
     post: Post | undefined
@@ -34,62 +33,17 @@ export const PostComponent: FC<{
             const key = `${post.id}_${index}`;
             switch(content.type) {
               case 'heading_2':
-                return(
-                  <h2 key={key} className={styles.heading2}>
-                    {content.text}
-                  </h2>
-                );
+                return <Heading2 post={post} content={content} index={index} key={key} />
               case 'heading_3':
-                return(
-                  <h3 key={key} className={styles.heading3}>
-                    {content.text}
-                  </h3>
-                );
+                return <Heading3 post={post} content={content} index={index} key={key} />
               case 'paragraph':
-                return(
-                  <p key={key} className={styles.paragraph}>
-                    {content.text}
-                  </p>
-                );
+                return <Paragraph post={post} content={content} index={index} key={key} />
               case 'code':
-                if (!content.text || !content.language) {
-                  return null;
-                }
-                return (
-                  <Highlight code={content.text} language={content.language} key={`highlight_${index}`}>
-                    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                      <pre key={key} className={className} style={style}>
-                        {tokens.map((line, i) => (
-                          <div {...getLineProps({ line })} key={`${key}_line_${i}`}>
-                            {line.map((token, tokenKey) => (
-                              <span {...getTokenProps({ token })} key={`${key}_token_${tokenKey}`} />
-                            ))}
-                          </div>
-                        ))}
-                      </pre>
-                    )}
-                  </Highlight>
-                );
+                return <Code post={post} content={content} index={index} key={key} />
               case 'quote':
-                return(
-                  <blockquote key={key} className={styles.quote}>
-                    {content.text}
-                  </blockquote>
-                );
+                return <Quote post={post} content={content} index={index} key={key} />
               case 'image':
-                if(!content.text) return;
-                return(
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={content.text}
-                      style={{
-                        maxWidth: 400,
-                        height: 'auto'
-                      }}
-                      key={key}
-                      alt=""
-                    />
-                );
+                return <PostImage post={post} content={content} index={index} key={key} />
             }
           })}
         </div>
