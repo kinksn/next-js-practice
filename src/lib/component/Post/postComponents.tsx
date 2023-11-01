@@ -79,3 +79,28 @@ export const Code: FC<ContentComponentProps> = ({ post, content, index }) => {
       </Highlight>
   )
 }
+
+export const RenderPostContents: FC<ContentComponentProps> = ({ post, content, index }) => {
+  const renderContent = () => {
+    switch(content.type) {
+      case 'heading_2':
+        return <Heading2 post={post} content={content} index={index} key={key(post.id, index)} />
+      case 'heading_3':
+        return <Heading3 post={post} content={content} index={index} key={key(post.id, index)} />
+      case 'paragraph':
+        return <Paragraph post={post} content={content} index={index} key={key(post.id, index)} />
+      case 'code':
+        return <Code post={post} content={content} index={index} key={key(post.id, index)} />
+      case 'quote':
+        return <Quote post={post} content={content} index={index} key={key(post.id, index)} />
+      case 'image':
+        return <PostImage post={post} content={content} index={index} key={key(post.id, index)} />
+    }
+  }
+
+  return (
+    <>
+      {renderContent()}
+    </>
+  )
+}

@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { getPosts, getPostsInContents } from "@/lib/notion";
+import { getPostsInContents } from "@/lib/notion";
 import { Layout } from "@/lib/component/Layout";
 import { PostComponent } from "@/lib/component/Post";
 import { Post } from "@/lib/types";
@@ -12,8 +12,8 @@ type StaticProps = {
   post?: Post;
 };
 
-let cachedPosts: Post[] | null = null;
 const getCachedPosts = async (slug?: string): Promise<Post[]> => {
+  let cachedPosts: Post[] | null = null;
   // slugが提供された場合、またはキャッシュがまだ存在しない場合はデータを再取得
   if (slug || !cachedPosts) {
     const newPosts = await getPostsInContents(slug);
