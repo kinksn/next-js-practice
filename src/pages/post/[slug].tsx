@@ -14,26 +14,25 @@ type StaticProps = {
 
 const getCachedPosts = async (slug?: string): Promise<Post[]> => {
   let cachedPosts: Post[] | null = null;
-  // slugが提供された場合、またはキャッシュがまだ存在しない場合はデータを再取得
   if (slug || !cachedPosts) {
     const newPosts = await getPostsInContents(slug);
-    // slugが提供されていない場合のみキャッシュを更新
     if (!slug) {
       cachedPosts = newPosts;
     }
     return newPosts;
   }
+  
   return cachedPosts;
 };
 
 export const getStaticPaths: GetStaticPaths<StaticPathsParams> = async () => {
   const posts = await getCachedPosts();
-  const paths = posts.reduce((acc: { params: StaticPathsParams }[], post) => {
+  const paths = posts.flatMap((post) => {
     if(post.slug) {
       return [{ params: { slug: post.slug } }]
     }
-    return acc;
-  }, []);
+    return [];
+  });
 
   return { paths, fallback: 'blocking' };
 };
@@ -48,17 +47,13 @@ export const getStaticProps: GetStaticProps<
       destination: '/404'
     }
   }
-
-  if(!params) return notFoundProps;
+  if(!params || !params.slug) return notFoundProps;
   const posts = await getCachedPosts(params.slug);
   
-  if(!posts) return notFoundProps;
-
-  return {
-    props: {
-      post: posts[0]
-    },
-    revalidate: 60
+  if(posts) {
+    return ({ props: { post: posts[0] }})
+  } else {
+    return notFoundProps
   }
 };
 
